@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
-          name: AppImage-${{ matrix.arch }}
+          name: Wrappe-${{ matrix.arch }}
           path: dist
 
   release:
@@ -44,7 +44,23 @@ jobs:
     steps:
       - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
-          pattern: AppImage-*
+          pattern: Wrappe-*
           merge-multiple: true
-      - name: Release AppImage
-        uses: pkgforge-dev/make-stable-appimage-release@4ed3d48ccb065352b6e6c0db6d39885b201c54a0 #v1.1
+      - name: Read version and get date
+        shell: sh
+        run: |
+          echo "APPNAME=$APPNAME" >> "${GITHUB_ENV}"
+          echo "VERSION=$VERSION" >> "${GITHUB_ENV}"
+          echo "DATE=$(date +'%Y-%m-%d_%s')" >> "${GITHUB_ENV}"
+
+      - name: Release Artifacts
+        uses: softprops/action-gh-release@5be0e66d93ac7ed76da52eca8bb058f665c3a5fe # v2.4.2
+        with:
+          name: "${{ env.APPNAME }}: ${{ env.VERSION }}"
+          tag_name: "${{ env.VERSION }}@${{ env.DATE }}"
+          prerelease: false
+          draft: false
+          generate_release_notes: false
+          make_latest: true
+          files: |
+            *wrappe*
