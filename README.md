@@ -8,4 +8,6 @@ Building statically linked packages is not so easy, so I resorted to the unique 
 Those pseudo-static binaries are built thanks to [`sharun`](https://github.com/VHSgunzo/sharun)'s wrappe feature, which bundles all libraries needed for the binary in a single executable.  
 We rely on Arch packaging of these, which is good and fast, so we always get the latest version of everything.
 
+Binaries are built in `x86_64` and `aarch64` architecture.
+
 Binaries are automatically built every day.
