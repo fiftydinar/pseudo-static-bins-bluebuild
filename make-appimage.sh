@@ -10,6 +10,7 @@ export OUTPATH=./dist
 
 SHARUN_LINK=${SHARUN_LINK:-https://github.com/VHSgunzo/sharun/releases/latest/download/sharun-$ARCH-aio}
 wget -qO /tmp/sharun-aio "$SHARUN_LINK"
+chmod +x /tmp/sharun-aio
 
 # Deploy dependencies
 /tmp/sharun-aio --with-wrappe /usr/bin/wget --dst-dir ./dist
