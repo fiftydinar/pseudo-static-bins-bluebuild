@@ -1,7 +1,10 @@
 # Pseudo-static binaries for BlueBuild project
 
-I made this, because we need utilities that would work everywhere accross any Linux distribution, like some `coreutils`, `sed`, `awk`, `curl` and `wget`.
+I made this, because we need utilities that would be portable and work everywhere accross any Linux distribution, like some `coreutils`, `sed`, `awk`, `curl` and `wget` tools.
 
-Building statically linked packages is not so easy, so I resorted to unique method of building pseudo-static binaries.
+Building statically linked packages is not so easy, so I resorted to the unique method of building pseudo-static binaries.
 
-Those pseudo-static binaries are built thanks to [`sharun`](https://github.com/VHSgunzo/sharun)'s wrappe feature, which bundles all libraries needed for the binary in a single executable.
+Those pseudo-static binaries are built thanks to [`sharun`](https://github.com/VHSgunzo/sharun)'s wrappe feature, which bundles all libraries needed for the binary in a single executable.  
+We rely on Arch packaging of these, which is good and fast, so we always get the latest version of everything.
+
+Binaries are automatically built every day.
