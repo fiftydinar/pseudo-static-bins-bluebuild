@@ -13,6 +13,6 @@ wget -qO /tmp/sharun-aio "$SHARUN_LINK"
 chmod +x /tmp/sharun-aio
 
 # Deploy dependencies
-/tmp/sharun-aio --with-wrappe /usr/bin/wget --dst-dir ./dist
+/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/wget
 
 mv -v ./dist/$APPNAME ./dist/$APPNAME-$VERSION-wrappe
