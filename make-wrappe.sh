@@ -19,8 +19,8 @@ done
 
 APPNAME="cp mv ln rm rmdir mkdir cat chmod chown"
 
+VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
 for appname in $APPNAME; do
-  VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
   /tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/"$appname"
   mv -v ./dist/"$appname" ./dist/"$appname"-"$VERSION"-wrappe
 done
