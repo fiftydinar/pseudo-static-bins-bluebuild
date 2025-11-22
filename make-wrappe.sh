@@ -15,9 +15,9 @@ APPNAME="
 "
 
 for appname in $APPNAME; do
-  VERSION=$(pacman -Q $APPNAME | awk '{print $2; exit}')
-  /tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-  mv -v ./dist/$APPNAME ./dist/$APPNAME-$VERSION-wrappe
+  VERSION=$(pacman -Q $appname | awk '{print $2; exit}')
+  /tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$appname
+  mv -v ./dist/$appname ./dist/$appname-$VERSION-wrappe
 done
 
 ###################################### coreutils ######################################
@@ -26,12 +26,12 @@ APPNAME="
 	cp
 	mv
 	ln
-  rm
-  rmdir
-  mkdir
-  cat
-  chmod
-  chown
+	rm
+	rmdir
+	mkdir
+	cat
+	chmod
+	chown
 "
 
 VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
