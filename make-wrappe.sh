@@ -7,72 +7,20 @@ SHARUN_LINK=${SHARUN_LINK:-https://github.com/VHSgunzo/sharun/releases/latest/do
 wget -qO /tmp/sharun-aio "$SHARUN_LINK"
 chmod +x /tmp/sharun-aio
 
-###################################### wget ######################################
-APPNAME=wget
-VERSION=$(pacman -Q $APPNAME | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-$VERSION-wrappe
+APPNAME="wget curl gawk sed"
 
-###################################### curl ######################################
-APPNAME=curl
-VERSION=$(pacman -Q $APPNAME | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-$VERSION-wrappe
+for appname in $APPNAME; do
+  VERSION=$(pacman -Q $APPNAME | awk '{print $2; exit}')
+  /tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
+  mv -v ./dist/$APPNAME ./dist/$APPNAME-$VERSION-wrappe
+done
 
-#######################################################################################
 ###################################### coreutils ######################################
-#######################################################################################
 
-###################################### cp ######################################
-APPNAME=cp
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
+APPNAME="cp mv ln rm rmdir mkdir cat chmod chown"
 
-###################################### mv ######################################
-APPNAME=mv
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
-
-###################################### ln ######################################
-APPNAME=ln
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
-
-###################################### rm ######################################
-APPNAME=rm
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
-
-###################################### rmdir ######################################
-APPNAME=rm
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
-
-###################################### mkdir ######################################
-APPNAME=mkdir
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
-
-###################################### cat ######################################
-APPNAME=cat
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
-
-###################################### chmod ######################################
-APPNAME=chmod
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
-
-###################################### chown ######################################
-APPNAME=chown
-VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
-/tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/$APPNAME
-mv -v ./dist/$APPNAME ./dist/$APPNAME-coreutils-$VERSION-wrappe
+for appname in $APPNAME; do
+  VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
+  /tmp/sharun-aio lib4bin --with-wrappe --dst-dir ./dist /usr/bin/"$appname"
+  mv -v ./dist/"$appname" ./dist/"$appname"-"$VERSION"-wrappe
+done
