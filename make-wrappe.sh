@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eu
+set -eux
 
 ARCH=$(uname -m)
 SHARUN_LINK=${SHARUN_LINK:-https://github.com/VHSgunzo/sharun/releases/latest/download/sharun-$ARCH-aio}
