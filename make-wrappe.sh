@@ -3,7 +3,6 @@
 set -eu
 
 ARCH=$(uname -m)
-export WRAPPE_CLVL=${WRAPPE_CLVL:-15}
 SHARUN_LINK=${SHARUN_LINK:-https://github.com/VHSgunzo/sharun/releases/latest/download/sharun-$ARCH-aio}
 wget -qO /tmp/sharun-aio "$SHARUN_LINK"
 chmod +x /tmp/sharun-aio
@@ -17,7 +16,7 @@ APPNAME="
 
 for appname in $APPNAME; do
   VERSION=$(pacman -Q $appname | awk '{print $2; exit}')
-  /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "${appname##*/}" --dst-dir ./dist /usr/bin/$appname
+  /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "${appname##*/}" --wrappe-clvl 15 --dst-dir ./dist /usr/bin/$appname
   mv -v ./dist/$appname ./dist/$appname-$VERSION-$ARCH-wrappe
 done
 
@@ -27,7 +26,7 @@ APPNAME="
 
 for appname in $APPNAME; do
   VERSION=$(pacman -Q findutils | awk '{print $2; exit}')
-  /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "${appname##*/}" --dst-dir ./dist /usr/bin/$appname
+  /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "${appname##*/}" --wrappe-clvl 15 --dst-dir ./dist /usr/bin/$appname
   mv -v ./dist/$appname ./dist/$appname-$VERSION-$ARCH-wrappe
 done
 
@@ -47,6 +46,6 @@ APPNAME="
 
 VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
 for appname in $APPNAME; do
-  /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "${appname##*/}" --dst-dir ./dist /usr/bin/"$appname"
+  /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "${appname##*/}" --wrappe-clvl 15 --dst-dir ./dist /usr/bin/"$appname"
   mv -v ./dist/"$appname" ./dist/"$appname"-coreutils-"$VERSION"-$ARCH-wrappe
 done
