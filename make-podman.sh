@@ -20,6 +20,9 @@ quick-sharun /usr/bin/podman \
              /usr/bin/conmon \
              /usr/bin/runc
 
+## Don't unset Argv0, else pulling the image fails
+sed -i '/unset ARGV0/d' ./AppDir/AppRun
+
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
 rm ./dist/*.zsync
