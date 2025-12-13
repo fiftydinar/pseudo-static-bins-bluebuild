@@ -77,9 +77,7 @@ Version: ${VERSION%-*}
 Architecture: $DEB_ARCH
 Section: utils
 Priority: optional
-Depends: golang-github-containers-common
-Depends: uidmap
-
+Depends: golang-github-containers-common, uidmap
 EOF
 
 cp -r "$univ"/* "$deb"
