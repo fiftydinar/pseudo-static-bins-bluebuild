@@ -45,7 +45,6 @@ mkdir -p "$univ/usr/bin" \
 
 mv -v "./dist/$NAME_OF_FILE.AppImage" "$univ/usr/bin/podman"
 chmod +x "$univ/usr/bin/podman"
-setcap 'cap_setuid,cap_setgid+ep' "$univ/usr/bin/podman"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/podman-remote"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/podmansh"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/libexec/podman/quadlet"
