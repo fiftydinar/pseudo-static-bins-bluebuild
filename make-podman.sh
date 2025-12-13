@@ -37,7 +37,7 @@ mkdir -p "$univ/usr/bin" \
          "$univ/usr/share/bash-completion/completions/" \
          "$univ/usr/share/fish/vendor_completions.d" \
          "$univ/usr/share/zsh/site-functions" \
-         "$deb" \
+         "$deb/DEBIAN" \
          "$rpm/SOURCES"
          
 mv -v "./dist/$NAME_OF_FILE.AppImage" "$univ/usr/bin/podman"
