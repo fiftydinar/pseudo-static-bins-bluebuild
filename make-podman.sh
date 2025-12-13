@@ -16,7 +16,8 @@ export DESKTOP=DUMMY
 quick-sharun /usr/bin/podman \
              /usr/bin/podman-remote \
              /usr/bin/podmansh \
-             /usr/lib/podman
+             /usr/lib/podman \
+             /usr/bin/conmon
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
