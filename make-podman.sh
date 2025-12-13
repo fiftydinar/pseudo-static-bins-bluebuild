@@ -34,7 +34,7 @@ mkdir -p "$univ/usr/bin" \
          "$univ/usr/lib/systemd/user" \
          "$univ/usr/lib/systemd/user-generators" \
          "$univ/usr/lib/tmpfiles.d" \
-         "$univ/usr/share/bash-completion/" \
+         "$univ/usr/share/bash-completion/completions/" \
          "$univ/usr/share/fish/vendor_completions.d" \
          "$univ/usr/share/zsh/site-functions" \
          "$deb" \
