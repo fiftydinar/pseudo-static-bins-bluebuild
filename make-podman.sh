@@ -77,7 +77,8 @@ Version: ${VERSION%-*}
 Architecture: $DEB_ARCH
 Section: utils
 Priority: optional
-Depends: 
+Depends: golang-github-containers-common
+Depends: uidmap
 
 EOF
 
