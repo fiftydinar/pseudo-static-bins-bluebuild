@@ -6,7 +6,7 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm wget curl coreutils sed gawk findutils skopeo podman libseccomp gpgme runc dpkg rpm-tools
+pacman -Syu --noconfirm wget curl coreutils sed gawk findutils skopeo podman runc dpkg rpm-tools
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
