@@ -33,6 +33,7 @@ rpm="$tmpdir/rpm"
 NAME_OF_FILE="$APPNAME-$VERSION-anylinux-$ARCH"
 mkdir -p "$univ/usr/bin" \
          "$univ/usr/libexec/podman" \
+         "$univ/usr/lib/podman" \
          "$univ/usr/lib/systemd/system" \
          "$univ/usr/lib/systemd/user" \
          "$univ/usr/lib/systemd/user-generators" \
@@ -49,10 +50,22 @@ ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/podman-remote"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/podmansh"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/libexec/podman/quadlet"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/libexec/podman/rootlessport"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/libexec/podman/aardvark-dns"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/libexec/podman/catatonit"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/libexec/podman/netavark"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/lib/podman/quadlet"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/lib/podman/rootlessport"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/lib/podman/aardvark-dns"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/lib/podman/catatonit"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/lib/podman/netavark"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/quadlet"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/rootlessport"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/aardvark-dns"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/catatonit"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/netavark"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/conmon"
 ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/runc"
+ln -rsfv "$univ/usr/bin/podman" "$univ/usr/bin/netawark"
 cp -v /usr/lib/systemd/system/podman* "$univ/usr/lib/systemd/system/"
 cp -v /usr/lib/systemd/user/podman* "$univ/usr/lib/systemd/user/"
 cp -v /usr/lib/systemd/user-generators/podman* "$univ/usr/lib/systemd/user-generators/"
