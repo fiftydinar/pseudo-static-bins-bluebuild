@@ -18,9 +18,7 @@ quick-sharun /usr/bin/podman \
              /usr/bin/podmansh \
              /usr/lib/podman \
              /usr/bin/conmon \
-             /usr/bin/runc \
-             /usr/bin/newuidmap \
-             /usr/bin/newgidmap
+             /usr/bin/runc
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
