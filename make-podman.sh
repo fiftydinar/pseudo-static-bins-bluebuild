@@ -63,7 +63,7 @@ elif [ "$ARCH" = "aarch64" ]; then
   DEB_ARCH=arm64
 fi
 
-cat << EOF > "$deb/dpkg.control"
+cat << EOF > "$deb/DEBIAN/control"
 Package: podman-anylinux
 Description: Manage containers, pods, and images with Podman. Seamlessly work with containers and Kubernetes from your local environment.
 Homepage: https://podman.io/
