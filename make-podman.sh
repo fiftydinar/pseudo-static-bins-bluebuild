@@ -68,7 +68,7 @@ Package: podman-anylinux
 Description: Manage containers, pods, and images with Podman. Seamlessly work with containers and Kubernetes from your local environment.
 Homepage: https://podman.io/
 Maintainer: "fiftydinar <???>"
-Version: $VERSION
+Version: ${VERSION%-*}
 Architecture: $DEB_ARCH
 Section: utils
 Priority: optional
@@ -83,7 +83,7 @@ dpkg-deb --root-owner-group --build "$deb" "./dist/$NAME_OF_FILE.deb"
 cat << EOF > "$rpm/rpm.spec"
 Name: podman-anylinux
 Summary: Manage containers, pods, and images with Podman. Seamlessly work with containers and Kubernetes from your local environment.
-Version: $VERSION
+Version: ${VERSION%-*}
 Release: 1%{?dist}
 URL: https://podman.io/
 License: Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND ISC AND MIT AND MPL-2.0
