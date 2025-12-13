@@ -19,6 +19,7 @@ APPNAME="
 
 for appname in $APPNAME; do
   VERSION=$(pacman -Q "$appname" | awk '{print $2; exit}')
+  VERSION=${VERSION#*:}
   /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "$appname" --wrappe-clvl 15 --dst-dir ./dist /usr/bin/"$appname"
   mv -v ./dist/"$appname" ./dist/"$appname-$VERSION-$ARCH-wrappe"
 done
@@ -29,6 +30,7 @@ APPNAME="
 
 for appname in $APPNAME; do
   VERSION=$(pacman -Q findutils | awk '{print $2; exit}')
+  VERSION=${VERSION#*:}
   /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "$appname" --wrappe-clvl 15 --dst-dir ./dist /usr/bin/"$appname"
   mv -v ./dist/"$appname" ./dist/"$appname-$VERSION-$ARCH-wrappe"
 done
@@ -48,6 +50,7 @@ APPNAME="
 "
 
 VERSION=$(pacman -Q coreutils | awk '{print $2; exit}')
+VERSION=${VERSION#*:}
 for appname in $APPNAME; do
   /tmp/sharun-aio lib4bin --with-wrappe --wrappe-exec "$appname" --wrappe-clvl 15 --dst-dir ./dist /usr/bin/"$appname"
   mv -v ./dist/"$appname" ./dist/"$appname-coreutils-$VERSION-$ARCH-wrappe"
