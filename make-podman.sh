@@ -17,7 +17,8 @@ quick-sharun /usr/bin/podman \
              /usr/bin/podman-remote \
              /usr/bin/podmansh \
              /usr/lib/podman \
-             /usr/bin/conmon
+             /usr/bin/conmon \
+             /usr/bin/runc
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
