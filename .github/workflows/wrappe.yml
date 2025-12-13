@@ -30,6 +30,8 @@ jobs:
         run: /bin/sh ./get-dependencies.sh
       - name: Make Pseudo-static Binaries
         run: /bin/sh ./make-wrappe.sh
+      - name: Make Podman
+        run: /bin/sh ./make-podman.sh
       - name: Upload artifact
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
@@ -44,7 +46,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
-          pattern: Wrappe-*
+          pattern: *anylinux*
           merge-multiple: true
       - name: Get date
         shell: sh
@@ -62,3 +64,5 @@ jobs:
           make_latest: true
           files: |
             *wrappe*
+            *.deb
+            *.rpm
