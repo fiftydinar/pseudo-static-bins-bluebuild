@@ -16,6 +16,9 @@ export DESKTOP=DUMMY
 mkdir -p /tmp/skopeo-tmp
 quick-sharun /usr/bin/skopeo -- "copy docker://docker.io/library/nginx:latest dir:/tmp/skopeo-tmp"
 
+# Workaround skopeo-in-a-user-namespace process being ran as bin for some reason
+ln -srfv ./AppDir/bin/skopeo ./AppDir/bin/skopeo-in-a-user-namespace
+
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
 rm ./dist/*.zsync
