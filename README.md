@@ -11,3 +11,7 @@ We rely on Arch packaging of these, which is good and fast, so we always get the
 Binaries are built in `x86_64` and `aarch64` architecture.
 
 Binaries are automatically built every day.
+
+## Known issue
+
+- `skopeo` has a bug with copying containers to `containers-storage:` and `docker:` target.
